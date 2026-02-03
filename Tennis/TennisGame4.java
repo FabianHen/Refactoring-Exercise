@@ -1,3 +1,5 @@
+package tennis;
+
 public class TennisGame4 implements TennisGame {
 
     int serverScore;

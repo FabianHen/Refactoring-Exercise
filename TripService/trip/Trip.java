@@ -1,4 +1,4 @@
-package org.craftedsw.tripservicekata.trip;
+package tripservice.trip;
 
 public class Trip {
 

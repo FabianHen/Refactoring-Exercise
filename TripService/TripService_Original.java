@@ -1,13 +1,13 @@
-package org.craftedsw.tripservicekata;
+package tripservice;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.craftedsw.tripservicekata.exception.UserNotLoggedInException;
-import org.craftedsw.tripservicekata.trip.Trip;
-import org.craftedsw.tripservicekata.trip.TripDAO;
-import org.craftedsw.tripservicekata.user.User;
-import org.craftedsw.tripservicekata.user.UserSession;
+import tripservice.exception.UserNotLoggedInException;
+import tripservice.trip.Trip;
+import tripservice.trip.TripDAO;
+import tripservice.user.User;
+import tripservice.user.UserSession;
 
 public class TripService_Original {
 

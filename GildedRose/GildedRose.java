@@ -1,4 +1,4 @@
-package com.GildedRose;
+package gildedrose;
 
 class GildedRose {
     private static final String AGED_BRIE = "Aged Brie";

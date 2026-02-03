@@ -1,4 +1,4 @@
-package com.GildedRose;
+package gildedrose;
 
 public class Item {
 

@@ -1,3 +1,5 @@
+package tennis;
+
 public class TennisGame6 implements TennisGame {
     private final String player1Name;
     private final String player2Name;

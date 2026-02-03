@@ -1,4 +1,4 @@
-package com.nelkinda.training;
+package expensereport;
 
 import java.util.Date;
 import java.util.List;

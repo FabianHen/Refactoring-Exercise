@@ -1,9 +1,9 @@
-package org.craftedsw.tripservicekata.trip;
+package tripservice.trip;
 
 import java.util.List;
 
-import org.craftedsw.tripservicekata.exception.CollaboratorCallException;
-import org.craftedsw.tripservicekata.user.User;
+import tripservice.exception.CollaboratorCallException;
+import tripservice.user.User;
 
 public class TripDAO {
 
