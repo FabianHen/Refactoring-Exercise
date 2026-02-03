@@ -1,4 +1,4 @@
-# LSP Refactoring
+# Refactoring Exercise
 
 ## Table of Contents
 1. [Golden Copy – General](#golden-copy--general)
@@ -56,7 +56,7 @@ To improve code readability, a few general adjustments were made at the start of
 - Since the `Sulfuras` item does not change, a check with a `continue` statement was added to avoid unnecessary checks.  
 - Instead of checking with `!item.name.equals(FOO)` combined with nesting and handling in the else block, the logic was reversed to use `item.name.equals(FOO)`. This reduces nesting and improves code readability.
 
-[Show changes](https://github.com/FabianHen/LSP-Refactoring/commit/20f08b14118dadafe76c27edfbb7880fca61d419)
+[Show changes](https://github.com/FabianHen/Refactoring-Exercise/commit/20f08b14118dadafe76c27edfbb7880fca61d419)
 
 ### Refactoring Patterns
 
@@ -67,12 +67,12 @@ Instead of the usual approach of creating an interface for the strategies, I cho
 
 Although no changes are made for the `Sulfuras` item, I still created a dedicated strategy class for it. This ensures consistency and makes future extensions or modifications easier.
 
-[Show changes](https://github.com/FabianHen/LSP-Refactoring/commit/b50f308a45e0b32093b117b8626280d6f34ad77f)
+[Show changes](https://github.com/FabianHen/Refactoring-Exercise/commit/b50f308a45e0b32093b117b8626280d6f34ad77f)
 
 #### Factory Pattern
 After implementing the Strategy Pattern, the `updateQuality` method was reduced to only 9 lines and is already very clear. However, since the name of the `GildedRose` class suggests broad functionality, I decided to implement the Factory Pattern. This moves the responsibility for creating the item strategies from the `GildedRose` class to a separate factory class. This improves adherence to the Single Responsibility Principle and makes the code even more maintainable.
 
-[Show changes](https://github.com/FabianHen/LSP-Refactoring/commit/c91894af506dc89ec9134231f9b587889894e85f)
+[Show changes](https://github.com/FabianHen/Refactoring-Exercise/commit/c91894af506dc89ec9134231f9b587889894e85f)
 
 ### Implementation of the Desired Changes
 Once the refactorings were completed, I implemented the requested changes. The extension involved adding a new item type called `Conjured`, which deteriorates twice as fast as normal items.
@@ -84,7 +84,7 @@ During the implementation, I was uncertain because, as described, there are thre
 
 Since the third interpretation seemed the most sensible in the context of the refactoring, I chose this approach. A dedicated strategy class called `ConjuredItemStrategy` was created to implement the behavior of the `Conjured` items. In the factory class, an additional condition was added to account for this new strategy.
 
-[Show changes](https://github.com/FabianHen/LSP-Refactoring/commit/3bda9de45b177db68338ed7b415f12ffa99fdf78)
+[Show changes](https://github.com/FabianHen/Refactoring-Exercise/commit/3bda9de45b177db68338ed7b415f12ffa99fdf78)
 
 ## Tennis
 ### Golden Copy
