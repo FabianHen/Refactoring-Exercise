@@ -116,6 +116,27 @@ During the implementation, I also made a few additional general adjustments:
 [Show changes](https://github.com/FabianHen/Refactoring-Exercise/commit/cbd6d80d73df4bf90154356a449bc210d5806333)
 
 ### Implementation of the Desired Changes
+The task description already pointed out that this error was intentionally introduced:
+
+*"The player names are hard-coded as 'player1' and 'player2'. After refactoring, you should fix this issue and add appropriate test cases to verify that your correction works."*
+
+As mentioned earlier, I had already extracted the `Player` class, which made this step easier. I only needed to access the names of the `Player` objects in the `TennisGame1` class instead of using the hard-coded strings.
+
+Additionally, in this file, I converted the `else` block into an `else if` block. This does not change the fundamental behavior of the game. Now, only when an invalid player name is entered will the second player's score no longer be incremented.
+
+Another change required by the given task was adjusting the `getScore()` method in the `AdvantageState` and `WinState` classes. These methods now also access the names of the `Player` objects.
+
+
+[View Changes](https://github.com/FabianHen/Refactoring-Exercise/commit/64357bb7d1031c81344e39fa1cd605a20b8de86b)
+
+### Adding and Adjusting Test Cases
+With the introduction of the `Player` objects, the internal scoring logic changed:  
+The `wonPoint()` method now compares the passed player names with the names of the `Player` objects.
+
+The existing test cases did not need to be changed, as they still pass the correct player names. However, it is important that the strings used in the tests match exactly the names used when the TennisGame was created.
+
+To ensure consistency, the player names in the tests could either be defined as constants or set globally once. This behavior can also be documented with an additional test case that verifies the scoring logic fails if names are used inconsistently.
+
 
 ## Trip Service
 ### Golden Copy
