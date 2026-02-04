@@ -56,7 +56,7 @@ To improve code readability, a few general adjustments were made at the start of
 - Since the `Sulfuras` item does not change, a check with a `continue` statement was added to avoid unnecessary checks.  
 - Instead of checking with `!item.name.equals(FOO)` combined with nesting and handling in the else block, the logic was reversed to use `item.name.equals(FOO)`. This reduces nesting and improves code readability.
 
-[Show changes](https://github.com/FabianHen/Refactoring-Exercise/commit/20f08b14118dadafe76c27edfbb7880fca61d419)
+[View changes](https://github.com/FabianHen/Refactoring-Exercise/commit/20f08b14118dadafe76c27edfbb7880fca61d419)
 
 ### Refactoring Patterns
 
@@ -67,12 +67,12 @@ Instead of the usual approach of creating an interface for the strategies, I cho
 
 Although no changes are made for the `Sulfuras` item, I still created a dedicated strategy class for it. This ensures consistency and makes future extensions or modifications easier.
 
-[Show changes](https://github.com/FabianHen/Refactoring-Exercise/commit/b50f308a45e0b32093b117b8626280d6f34ad77f)
+[View changes](https://github.com/FabianHen/Refactoring-Exercise/commit/b50f308a45e0b32093b117b8626280d6f34ad77f)
 
 #### Factory Pattern
 After implementing the Strategy Pattern, the `updateQuality` method was reduced to only 9 lines and is already very clear. However, since the name of the `GildedRose` class suggests broad functionality, I decided to implement the Factory Pattern. This moves the responsibility for creating the item strategies from the `GildedRose` class to a separate factory class. This improves adherence to the Single Responsibility Principle and makes the code even more maintainable.
 
-[Show changes](https://github.com/FabianHen/Refactoring-Exercise/commit/c91894af506dc89ec9134231f9b587889894e85f)
+[View changes](https://github.com/FabianHen/Refactoring-Exercise/commit/c91894af506dc89ec9134231f9b587889894e85f)
 
 ### Implementation of the Desired Changes
 Once the refactorings were completed, I implemented the requested changes. The extension involved adding a new item type called `Conjured`, which deteriorates twice as fast as normal items.
@@ -84,7 +84,7 @@ During the implementation, I was uncertain because, as described, there are thre
 
 Since the third interpretation seemed the most sensible in the context of the refactoring, I chose this approach. A dedicated strategy class called `ConjuredItemStrategy` was created to implement the behavior of the `Conjured` items. In the factory class, an additional condition was added to account for this new strategy.
 
-[Show changes](https://github.com/FabianHen/Refactoring-Exercise/commit/3bda9de45b177db68338ed7b415f12ffa99fdf78)
+[View changes](https://github.com/FabianHen/Refactoring-Exercise/commit/3bda9de45b177db68338ed7b415f12ffa99fdf78)
 
 ## Tennis
 ### Golden Copy
@@ -97,7 +97,7 @@ To improve code readability here as well, a few general adjustments were made at
 - Creating `getTieScore()`, `getWinScore()`, and `getNormalScore()` using the Extract Method refactoring within the `getScore()` method to improve readability.
 - Using a `StringBuilder` instead of `+=` in the `getNormalScore()` method.
 
-[Show changes](https://github.com/FabianHen/Refactoring-Exercise/commit/c3cad12a1a1035253869223f9872dca9276d178e)
+[View changes](https://github.com/FabianHen/Refactoring-Exercise/commit/c3cad12a1a1035253869223f9872dca9276d178e)
 
 ### Refactoring Patterns
 #### State Pattern
@@ -113,7 +113,7 @@ During the implementation, I also made a few additional general adjustments:
 - Extracted the names of the score values into a `String` array for more readable code. This logic is now found in `NormalState`.  
 - Applied Extract Class with the `Player` class to encapsulate player information and facilitate planned future changes.
 
-[Show changes](https://github.com/FabianHen/Refactoring-Exercise/commit/cbd6d80d73df4bf90154356a449bc210d5806333)
+[View changes](https://github.com/FabianHen/Refactoring-Exercise/commit/cbd6d80d73df4bf90154356a449bc210d5806333)
 
 ### Implementation of the Desired Changes
 The task description already pointed out that this error was intentionally introduced:
@@ -136,6 +136,21 @@ The `wonPoint()` method now compares the passed player names with the names of t
 The existing test cases did not need to be changed, as they still pass the correct player names. However, it is important that the strings used in the tests match exactly the names used when the TennisGame was created.
 
 To ensure consistency, the player names in the tests could either be defined as constants or set globally once. This behavior can also be documented with an additional test case that verifies the scoring logic fails if names are used inconsistently.
+
+### Handling the Other Files
+After reviewing the remaining TennisGame classes, I found that they all represent the same business logic, but with different structure and style. The differences were exclusively in the way points are counted, how the score is displayed, and the internal variable naming:
+
+- **TennisGame1** uses a long `getScore()` method with a for loop and switch statements.  
+- **TennisGame2** used a massive if/else structure.  
+- **TennisGame3** uses overly complex conditions to minimize the number of lines.  
+- **TennisGame4** utilizes many chained `ResultProvider` objects, making the classes hard to understand and cluttered.  
+- **TennisGame5** stores all possible scores up to `4` in a map and accesses them.  
+- **TennisGame6** is similar to TennisGame1 but uses two `switch` statements instead of a double for loop.  
+- **TennisGame7** is like TennisGame6 but additionally formats the score with a message such as "Current score: …, enjoy your game!"
+
+Since all of these files serve the same function, but deleting them would cause tests to fail, I decided to implement the remaining versions (TennisGame2–7) by delegating to `TennisGame1`. This way, the observable behavior remains completely identical (all tests stay green) without having to refactor each implementation individually.
+
+[View Changes](https://github.com/FabianHen/Refactoring-Exercise/commit/97f84f5ebf3d2f5c537096ea4509e519c67b53f4)
 
 
 ## Trip Service
