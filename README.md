@@ -100,6 +100,21 @@ To improve code readability here as well, a few general adjustments were made at
 [Show changes](https://github.com/FabianHen/Refactoring-Exercise/commit/c3cad12a1a1035253869223f9872dca9276d178e)
 
 ### Refactoring Patterns
+#### State Pattern
+Since the project is a simulation of a game with multiple states, I decided to use the State Pattern. For each possible game state, a separate class is created that implements the behavior for that state. This greatly simplifies the `getScore()` method, as it now only needs to query the current state and call the corresponding method. Transitions to other states are handled by methods within the respective state classes. The following states were implemented:
+
+- `NormalState` – regular game score  
+- `DeuceState` – tie after a regular game  
+- `AdvantageState` – advantage for a player after a regular game  
+- `WinState` – victory for a player  
+
+During the implementation, I also made a few additional general adjustments:
+
+- Extracted the names of the score values into a `String` array for more readable code. This logic is now found in `NormalState`.  
+- Applied Extract Class with the `Player` class to encapsulate player information and facilitate planned future changes.
+
+[Show changes](https://github.com/FabianHen/Refactoring-Exercise/commit/cbd6d80d73df4bf90154356a449bc210d5806333)
+
 ### Implementation of the Desired Changes
 
 ## Trip Service
