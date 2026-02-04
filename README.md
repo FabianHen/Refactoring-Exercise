@@ -88,6 +88,7 @@ Since the third interpretation seemed the most sensible in the context of the re
 
 ## Tennis
 ### Golden Copy
+The project already contains the tests required for a golden copy. These describe the behavior of the tennis game using an array of points with the corresponding game results.
 ### General Adjustments
 ### Refactoring Patterns
 ### Implementation of the Desired Changes
