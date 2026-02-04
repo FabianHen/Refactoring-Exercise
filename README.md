@@ -90,6 +90,15 @@ Since the third interpretation seemed the most sensible in the context of the re
 ### Golden Copy
 The project already contains the tests required for a golden copy. These describe the behavior of the tennis game using an array of points with the corresponding game results.
 ### General Adjustments
+To improve code readability here as well, a few general adjustments were made at the beginning of the refactoring. These changes include:
+
+- Replacing string comparisons using `==` with `equals` methods.
+- Extracting the "magic number" `4` into the constant `WIN_THRESHOLD` to improve readability and reduce the risk of errors.
+- Creating `getTieScore()`, `getWinScore()`, and `getNormalScore()` using the Extract Method refactoring within the `getScore()` method to improve readability.
+- Using a `StringBuilder` instead of `+=` in the `getNormalScore()` method.
+
+[Show changes](https://github.com/FabianHen/Refactoring-Exercise/commit/c3cad12a1a1035253869223f9872dca9276d178e)
+
 ### Refactoring Patterns
 ### Implementation of the Desired Changes
 
