@@ -20,6 +20,6 @@ public class AdvantageState implements GameState{
     public String getScore(Player player1, Player player2) {
         int score1 = player1.getScore();
         int score2 = player2.getScore();
-        return score1 > score2 ? "Advantage player1" : "Advantage player2";
+        return "Advantage " + (score1 > score2 ?  player1.getName() : player2.getName());
     }
 }
