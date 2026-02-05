@@ -1,6 +1,6 @@
-package expensereport;
+package expensereport.line;
 
-public class ReportLine {
+public class ReportLine implements Line {
     private final String name;
     private final int amount;
     private final String marker;
@@ -12,7 +12,7 @@ public class ReportLine {
     }
 
     @Override
-    public String toString() {
+    public String format() {
         return name + "\t" + amount + "\t" + marker;
     }
 }

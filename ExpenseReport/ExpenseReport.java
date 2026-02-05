@@ -1,5 +1,7 @@
 package expensereport;
 
+import expensereport.line.*;
+
 import java.util.Date;
 import java.util.List;
 
@@ -9,7 +11,8 @@ public class ExpenseReport {
         int total = 0;
         int mealExpenses = 0;
 
-        System.out.println("Expenses " + new Date());
+        HeadLine headLine = new HeadLine(new Date());
+        System.out.println(headLine.format());
 
         for (Expense expense : expenses) {
             if (expense.type.isMealExpense()) {
@@ -20,12 +23,15 @@ public class ExpenseReport {
                     expense.amount,
                     expense.getMealOverExpenseMarker()
             );
-            System.out.println(currentLine);
+            System.out.println(currentLine.format());
 
             total += expense.amount;
         }
 
-        System.out.println("Meal expenses: " + mealExpenses);
-        System.out.println("Total expenses: " + total);
+        MealExpensesLine mealExpensesLine = new MealExpensesLine(mealExpenses);
+        System.out.println(mealExpensesLine.format());
+
+        TotalExpensesLine totalExpensesLine = new TotalExpensesLine(total);
+        System.out.println(totalExpensesLine.format());
     }
 }
