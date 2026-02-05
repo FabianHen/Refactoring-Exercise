@@ -23,7 +23,7 @@ public class ExpenseReport {
 
 
         HeadLine headLine = new HeadLine(new Date());
-        System.out.println(headLine.format());
+        printer.printLine(headLine);
 
         for (Expense expense : expenses) {
             if (expense.type.isMealExpense()) {
