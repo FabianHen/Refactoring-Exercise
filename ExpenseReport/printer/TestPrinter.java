@@ -9,7 +9,7 @@ public class TestPrinter implements Printer {
     private final List<String> lines;
 
     public TestPrinter() {
-        lines = new ArrayList<String>();
+        lines = new ArrayList<>();
     }
 
     @Override

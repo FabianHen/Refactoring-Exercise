@@ -220,7 +220,7 @@ While writing the interface, I realized that, similar to the `ReportLine`, I cou
 
 After implementing this change, I continued with the Strategy Pattern. I created the `Printer` interface and moved the current default behavior of the `System.out.println(...)` calls into the `ConsolePrinter` class. The `ExpenseReport` class now has a `Printer` object as an attribute, which is used in the `printReport(...)` method. This object is set by default to an instance of `ConsolePrinter` so that the class behavior does not change. However, it can be adjusted via a constructor or setter. This functionality makes testing the `ExpenseReport` class much easier, as a mock printer can now be passed to verify the output instead of capturing console output. I implemented such an example printer in the `TestPrinter` class, where the printed lines are simply stored in a list.
 
-[View Changes](https://github.com/FabianHen/Refactoring-Exercise/commit/82533ef648a787d48e95e66d529ff3546094a16a)
+[View Changes](https://github.com/FabianHen/Refactoring-Exercise/commit/82533ef648a787d48e95e66d529ff3546094a16a) and [Change that I forgot to do](https://github.com/FabianHen/Refactoring-Exercise/commit/a87a864f8e39d0e3a33ec09e30fb84757a827698)
 
 ### Implementation of the Desired Changes
 Once the refactoring was complete, I could implement the requested changes. The requirement was as follows:
