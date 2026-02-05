@@ -20,12 +20,11 @@
 4. [Trip Service](#trip-service)
    - [Golden Copy](#golden-copy-2)
    - [General Adjustments](#general-adjustments-2)
-   - [Refactoring Patterns](#refactoring-patterns-2)
    - [Implementation of the Desired Changes](#implementation-of-the-desired-changes-1)
 5. [Expense Report](#expense-report)
    - [Golden Copy](#golden-copy-3)
    - [General Adjustments](#general-adjustments-3)
-   - [Refactoring Patterns](#refactoring-patterns-3)
+   - [Refactoring Patterns](#refactoring-patterns-2)
    - [Implementation of the Desired Changes](#implementation-of-the-desired-changes)
 
 ## Golden Copy – General
@@ -158,9 +157,29 @@ Since all of these files serve the same function, but deleting them would cause 
 
 ## Trip Service
 ### Golden Copy
+To fully cover the existing behavior of the `TripService`, tests must be implemented for all defined business rules. These rules include:
+
+1. **User not logged in** – Throws a `UserNotLoggedInException`.  
+2. **User without friends** – Returns an empty list.  
+3. **User with friends but without trips** – Returns an empty list.  
+4. **User with friends and trips** – Returns a list of the friends' trips.  
+
+The challenge here is that the `TripService` class depends on two external services: `UserSession` and `TripDAO`. These throw errors when their static methods are accessed in a test environment. Therefore, some general changes are required first to ensure testability.
+
 ### General Adjustments
-### Refactoring Patterns
+To improve the testability of the `TripService` class, I made several general adjustments:
+
+- I encapsulated the calls to the two static methods `UserSession.getLoggedInUser()` and `TripDAO.findTripsByUser(...)` within `protected` methods of the `TripService` class. This allows these methods to be overridden in a test subclass and return mock data. As a result, the static methods are no longer called directly, making the code testable.
+- I extracted the `isFriend(...)` method to improve the readability of the main method.
+- I added an early return in the `getTripsByUser(...)` method when the user has no friends. This reduces nesting and improves code readability.
+
+[View Changes](https://github.com/FabianHen/Refactoring-Exercise/commit/79359ef97619a09a443945086b18f318cc90b5dd)
+
 ### Implementation of the Desired Changes
+After ensuring the testability of the `TripService` class, I was able to start implementing tests for the Golden Copy. Since no tests are required for this submission, I only created the `TestableTripService` file in the test directory. This class extends the `TripService` class and overrides the two methods `getLoggedUser()` and `findTripsByUser(...)` to return mock data. By additionally providing various constructors and setter methods, the mock data can be flexibly configured to cover different test cases.
+
+[View Changes](https://github.com/FabianHen/Refactoring-Exercise/commit/733eeece730c5758b5b09bfe7c746a5dff9ff234)
+
 
 ## Expense Report
 ### Golden Copy
