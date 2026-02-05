@@ -6,8 +6,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.params.provider.MethodSource;
 import tennis.*;
 
+/**
+ * Test class for the Tennis game, which checks the correctness of the score reporting for various scenarios.
+ */
 public class TennisTest {
 
+    /**
+     * Provides a stream of test cases for the tennis game, including various combinations of player points and expected scores.
+     *
+     * @return a stream of test cases, where each test case is an array containing player1 points, player2 points, and the expected score string
+     */
     public static Stream<Object[]> getAllScores() {
         return Stream.of(new Object[][]{
                 {0, 0, "Love-All"},
@@ -62,6 +70,9 @@ public class TennisTest {
         assertEquals(expectedScore, game.getScore());
     }
 
+    /**
+     * Tests the score reporting for TennisGame1 implementation using the provided test cases.
+     */
     @ParameterizedTest
     @MethodSource("getAllScores")
     public void checkAllScoresTennisGame1(int player1Points, int player2Points, String expectedScore) {
@@ -69,6 +80,9 @@ public class TennisTest {
         checkAllScores(player1Points, player2Points, expectedScore, game);
     }
 
+    /**
+     * Tests the score reporting for TennisGame2 implementation using the provided test cases.
+     */
     @ParameterizedTest
     @MethodSource("getAllScores")
     public void checkAllScoresTennisGame2(int player1Points, int player2Points, String expectedScore) {
@@ -76,6 +90,9 @@ public class TennisTest {
         checkAllScores(player1Points, player2Points, expectedScore, game);
     }
 
+    /**
+     * Tests the score reporting for TennisGame3 implementation using the provided test cases.
+     */
     @ParameterizedTest
     @MethodSource("getAllScores")
     public void checkAllScoresTennisGame3(int player1Points, int player2Points, String expectedScore) {
@@ -83,6 +100,9 @@ public class TennisTest {
         checkAllScores(player1Points, player2Points, expectedScore, game);
     }
 
+    /**
+     * Tests the score reporting for TennisGame4 implementation using the provided test cases.
+     */
     @ParameterizedTest
     @MethodSource("getAllScores")
     public void checkAllScoresTennisGame4(int player1Points, int player2Points, String expectedScore) {
@@ -90,6 +110,9 @@ public class TennisTest {
         checkAllScores(player1Points, player2Points, expectedScore, game);
     }
 
+    /**
+     * Tests the score reporting for TennisGame5 implementation using the provided test cases.
+     */
     @ParameterizedTest
     @MethodSource("getAllScores")
     public void checkAllScoresTennisGame5(int player1Points, int player2Points, String expectedScore) {
@@ -97,6 +120,9 @@ public class TennisTest {
         checkAllScores(player1Points, player2Points, expectedScore, game);
     }
 
+    /**
+     * Tests the score reporting for TennisGame6 implementation using the provided test cases.
+     */
     @ParameterizedTest
     @MethodSource("getAllScores")
     public void checkAllScoresTennisGame6(int player1Points, int player2Points, String expectedScore) {
@@ -104,7 +130,9 @@ public class TennisTest {
         checkAllScores(player1Points, player2Points, expectedScore, game);
     }
 
-
+    /**
+     * Tests the score reporting for TennisGame7 implementation using the provided test cases.
+     */
     @ParameterizedTest
     @MethodSource("getAllScores")
     public void checkAllScoresTennisGame7(int player1Points, int player2Points, String expectedScore) {

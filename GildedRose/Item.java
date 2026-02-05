@@ -1,5 +1,8 @@
 package gildedrose;
 
+/** 
+ * No Documentation in this file because the goblin in the corner will be angry if I add any.
+*/
 public class Item {
 
     public String name;

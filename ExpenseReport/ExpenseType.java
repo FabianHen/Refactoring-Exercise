@@ -1,5 +1,8 @@
 package expensereport;
 
+/**
+ * Represents the type of expense, including its name, limit, and whether it is a meal expense.
+ */
 public enum ExpenseType {
     DINNER("Dinner", 5000, true),
     BREAKFAST("Breakfast", 1000, true),
@@ -16,14 +19,29 @@ public enum ExpenseType {
         this.isMealExpense = isMealExpense;
     }
 
+    /**
+     * Returns the name of the expense type.
+     *
+     * @return the name of the expense type
+     */
     public int getExpenseLimit() {
         return expenseLimit;
     }
 
+    /**
+     * Returns whether this expense type is a meal expense.
+     *
+     * @return true if this expense type is a meal expense, false otherwise
+     */
     public boolean isMealExpense() {
         return isMealExpense;
     }
 
+    /**
+     * Returns the string representation of this expense type, which is its name.
+     *
+     * @return the name of the expense type
+     */
     @Override
     public String toString() {
         return expenseName;
